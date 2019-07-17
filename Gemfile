@@ -22,10 +22,9 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails'
 
-
 gem 'bcrypt'
 gem 'pry'
-# gem 'figaro'
+
 
 
 # Use CoffeeScript for .coffee assets and views
