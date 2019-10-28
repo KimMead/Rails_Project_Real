@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
     @current_user || User.find_by(id: session[:user_id]) if session[:user_id]
   end
   
-  def set_user
-    @user = current_user
-  end
-  
   def require_login
     if !logged_in?
       redirect_to signin_path

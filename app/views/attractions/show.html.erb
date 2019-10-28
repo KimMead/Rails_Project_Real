@@ -8,12 +8,19 @@
 </br>
 </br>
 State: <%= @attraction.state.name %></h4>
-<hr> 
-<%= link_to "See Your List", attractions_path(@attraction), :class => 'btn btn-sm btn-primary' %>
+</br>
+<h5>Like Count: <%= @attraction.like %> </h5> 
+
+<%= button_to "Like Attraction!", attraction_path(@attraction), :class => 'btn btn-sm btn-primary' %>
+<hr>
+
+<%= link_to "See Attraction List", attractions_path(@attraction), :class => 'btn btn-sm btn-primary' %>
+
+<% if @attraction.user == current_user %>
 <%= link_to "Edit Attraction", edit_attraction_path(@attraction), :class => 'btn btn-sm btn-primary btn-rounded' %> 
 <%= link_to "Delete Attraction", attraction_path(@attraction), 
                         method: :delete, 
                         data: {confirm: 'Are you sure?'},
                         :class => 'btn btn-sm btn-primary btn-rounded' %> 
 
-
+<% end %>

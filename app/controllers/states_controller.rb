@@ -10,7 +10,12 @@ class StatesController < ApplicationController
 
     def most_comments
         @state = State.most_comments.first
-      end
+    end
+
+    def alpha
+        @states = State.alpha
+        render :index  
+    end 
 
     private 
 

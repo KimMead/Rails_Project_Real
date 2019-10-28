@@ -8,11 +8,13 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true 
     has_secure_password 
 
-    def self.from_omniauth(auth)
-      where(email: auth.info.email).first_or_initialize do |user|
-        user.name = auth.info.name
-        user.email = auth.info.email
-        user.password = SecureRandom.hex
+    def self.find_or_create_by_omniauth(auth)
+      
+      User.find_or_create_by(uid: auth["uid"]) do |user|
+        user.provider = auth["provider"]
+        user.name = auth["info"]["name"] || auth["info"]["nickname"]
+        user.email = auth["info"]["email"]
+        user.password = SecureRandom.hex(10) 
       end
     end
-  end
+  end 

@@ -11,8 +11,9 @@
     </ul>
 <% end %>
 <hr>
+<%= link_to "Alphabetize!", "/states/alpha", :class => 'btn btn-sm btn-primary' %>
 <%= link_to "State With Most Comments", states_most_comments_url, :class => 'btn btn-sm btn-primary' %>
-<%= link_to "Your Attraction List", attractions_path(@user), :class => 'btn btn-sm btn-primary' %>
+<%= link_to "Attraction List", attractions_path(@user), :class => 'btn btn-sm btn-primary' %>
     
 
     

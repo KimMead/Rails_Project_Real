@@ -1,0 +1,19 @@
+</br>
+</br>
+</br>
+</br>
+<h3>Popular Attractions</h3>
+<hr>
+<% @attractions.each do |attraction| %>
+<ul>
+<li>
+<%= link_to attraction.name, attraction_path(attraction) %>
+</br>Likes: <%= attraction.like %></li>
+
+Created by: <%= attraction.user.name %>
+</ul>
+
+<% end %>
+
+<hr>
+<%= link_to "Back To Attraction List", attractions_path(@attraction), :class => 'btn btn-sm btn-primary' %>

@@ -2,20 +2,20 @@
 </br>
 </br>
 </br>
-<h3><%= current_user.name.capitalize %>'s Attraction List</h3> 
+<h3> All Attractions </h3> 
 <hr>
 <% @attractions.each do |attraction| %>
 
 <ul>
 <li>
-    <%= link_to attraction.attraction_plus_state, attraction_path(attraction) %></li>
-    </ul>
+<%= link_to attraction.attraction_plus_state, attraction_path(attraction) %></li>
+</ul>
 <% end %>
 
 <hr>
 <%= link_to "Add New Attraction", new_attraction_url(@user), :class => 'btn btn-sm btn-primary' %>
 <%= link_to "Browse By State", states_path(@state), :class => 'btn btn-sm btn-primary' %>
-
+<%= link_to "List By Popularity", attractions_likes_order_url, :class => 'btn btn-sm btn-primary' %>
 
 
 

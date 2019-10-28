@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end 
 
   def show 
-    set_user 
+    @user = current_user 
   end 
   
   def create
